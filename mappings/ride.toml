@@ -1,0 +1,80 @@
+# Controller mapping "ride": Free ride.
+#
+# A mapping says which in-game action(s) each controller button triggers.
+# Select it with `-m ride` or `[mapping] name = "ride"` in config.toml.
+# Write a copy to your config directory for editing with `bikestick -M ride`
+# (files in <config dir>/mappings/ are found by name, or pass a file path to -m).
+#
+# Top-level keys (all optional):
+#   name        = "..."     label shown in logs
+#   description = "..."     free text
+#   inherit     = "ride"    start from another mapping (a name or a file path);
+#                           the entries below then override it per button
+#
+# Each entry is `button = value` where value is one of:
+#   "shift_up"                           a single action
+#   ["shift_down", "decrease_resistance"] several actions fired together
+#   "none"                               remove the binding (e.g. one inherited)
+#
+# [zwift_play] buttons:
+#   paddle_right, paddle_left, side_button_right, side_button_left,
+#   on_off_right, on_off_left, nav_up, nav_down, nav_left, nav_right,
+#   a, b, y, z
+#   (the left controller's nav_* buttons are its d-pad; a/b/y/z are on the right)
+#
+# [gamepad] buttons:
+#   south, east, north, west, left_bumper, right_bumper,
+#   left_trigger2, right_trigger2, dpad_up, dpad_down,
+#   dpad_left, dpad_right, start, select, stick_left, stick_right
+#
+# Actions:
+#   shift_up, shift_down, steer_left, steer_right,
+#   navigate_up, navigate_down, navigate_left, navigate_right, brake,
+#   camera_view, camera_view_behind, camera_view_first_person,
+#   camera_view_from_front, select, back, menu, push_to_talk,
+#   increase_resistance, decrease_resistance, skip_interval, previous_interval,
+#   pause, resume, lap, u_turn, change_mode, take_a_break, join_rider,
+#   change_route, hud_toggle, map_toggle, home, screenshot, cruise_control,
+#   camera_view_helicopter, camera_view_birdseye, focus_group_ahead, focus_group_behind
+#
+# Not every action is available in every application; with keyboard output an
+# action needs a key in the keyboard profile (see `bikestick -K`), and OBC/DirCon
+# only carry the actions the application advertises.
+# Note left_trigger and right_trigger are synonyms for the corresponding bumper buttons.
+# Use right_trigger2 and left_trigger2 for the analog triggers.
+name = "ride"
+description = "Normal route/free ride mappings"
+
+[zwift_play]
+paddle_right      = "shift_up"
+paddle_left       = "shift_down"
+side_button_right = "steer_right"
+side_button_left  = "steer_left"
+nav_up            = "navigate_up"
+nav_down          = "navigate_down"
+nav_left          = "navigate_left"
+nav_right         = "navigate_right"
+a                 = "camera_view"
+b                 = "camera_view_from_front"
+y                 = "camera_view_behind"
+z                 = "camera_view_first_person"
+on_off_right      = "CruiseControl"
+on_off_left       = "Screenshot"
+
+[gamepad]
+right_bumper      = "shift_up"
+left_bumper       = "shift_down"
+right_trigger2    = "steer_right"
+left_trigger2     = "steer_left"
+dpad_up           = "navigate_up"
+dpad_down         = "navigate_down"
+dpad_left         = "navigate_left"
+dpad_right        = "navigate_right"
+south             = "camera_view_from_front"
+east              = "camera_view_behind"
+north             = "camera_view_first_person"
+west              = "camera_view"
+start             = "Lap"
+select            = "CruiseControl"
+stick_left        = "TakeABreak"
+stick_right       = "Screenshot"

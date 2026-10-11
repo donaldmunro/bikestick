@@ -1,0 +1,10 @@
+# Allow members of the "input" group to create bikestick's virtual keyboard
+# via /dev/uinput.
+#
+# Install:
+#   sudo cp udev/99-bikestick-uinput.rules /etc/udev/rules.d/
+#   sudo udevadm control --reload-rules && sudo udevadm trigger
+#   sudo usermod -aG input $USER          # then log out and back in
+# The uinput module must be loaded; to load it at boot:
+#   echo uinput | sudo tee /etc/modules-load.d/uinput.conf
+KERNEL=="uinput", SUBSYSTEM=="misc", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"

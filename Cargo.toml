@@ -1,0 +1,44 @@
+[package]
+name = "bikestick"
+version = "0.1.0"
+edition = "2021"
+description = "Bridge Zwift Play controllers and gamepads to virtual cycling applications (OpenBikeControl or keyboard)"
+license = "GPL-3.0-only"
+
+[dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync", "time", "signal", "net", "io-util"] }
+futures = "0.3"
+gilrs = "0.11"
+serde = { version = "1", features = ["derive"] }
+toml = "0.9"
+clap = { version = "4", features = ["derive"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+anyhow = "1"
+thiserror = "2"
+directories = "6"
+uuid = "1"
+bytes = "1"
+mdns-sd = "0.20"
+gethostname = "1"
+mac_address = "1"
+bluest = "0.6.9"
+
+[target.'cfg(target_os = "linux")'.dependencies]
+bluer = { version = "0.17.4", features = ["bluetoothd"] }
+evdev = "0.13"
+
+[target."cfg(windows)".dependencies]
+windows = { version = "0.62.2", features = ["Win32_UI_Input_KeyboardAndMouse"] }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+core-graphics = "0.25.0"
+# Not used directly: works around an objc2-foundation 0.3 bug where bluest's
+# Device::id() (NSUUID getUUIDBytes:) trips objc2's debug-build encoding check
+# (`[16C]` vs `*`) and aborts inside a dispatch callback. Release builds skip
+# the check anyway.
+objc2 = { version = "0.6", features = ["disable-encoding-assertions"] }
+
+[profile.release]
+lto = true
+strip = true

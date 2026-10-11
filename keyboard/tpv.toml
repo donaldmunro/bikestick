@@ -1,0 +1,38 @@
+# Keyboard profile for TrainingPeaks Virtual (TPV).
+#
+# Syntax: see mywhoosh.toml for a full description (modes, modifiers, key names).
+app = "TrainingPeaks Virtual"
+
+[bindings]
+shift_up             = "kp_plus"
+shift_down           = "kp_minus"
+steer_left           = "left"
+steer_right          = "right"
+navigate_left        = "left"
+navigate_right       = "right"
+navigate_up          = "up"
+navigate_down        = "down"
+hud_toggle           = "h"
+map_toggle           = "g" # Actually power/cadence graph
+camera_view          = { key = "right_bracket", mode = "tap" } # next camera view
+camera_view_behind = { key = "digit_1", mode = "tap" }
+camera_view_first_person = { key = "digit_3", mode = "tap" }
+camera_view_from_front = { key = "digit_6", mode = "tap" }
+camera_view_helicopter = { key = "digit_8", mode = "tap" }
+camera_view_birdseye = { key = "digit_9", mode = "tap" }
+brake               = "s"  # hold: brakes while held
+u_turn        = "u"
+push_to_talk = "t"
+home                 = { key = "home", mode = "tap" } # focus camera on your own rider
+screenshot           = { key = "f10", mode = "tap" }
+cruise_control       = { key = "c", mode = "tap" }
+focus_group_ahead    = { key = "shift+page_up", mode = "tap" }   # events only
+focus_group_behind   = { key = "shift+page_down", mode = "tap" } # events only
+
+#Workout mode
+increase_resistance = "page_up"
+decrease_resistance = "page_down"
+skip_interval = "tab"
+pause = "space"
+
+

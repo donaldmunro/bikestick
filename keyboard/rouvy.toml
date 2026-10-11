@@ -1,0 +1,113 @@
+# Keyboard profile for Rouvy.
+#
+# No bindings are defined yet. Add them under [bindings] below.
+#
+# Each binding maps an in-game action to a key chord. Two forms are accepted:
+#
+#   shift_up = "kp_plus"                              # string: chord, hold mode
+#   steer_left = { key = "left", mode = "hold" }      # table: chord plus mode
+#   hud_toggle = { key = "ctrl+shift+h", mode = "tap" }
+#
+# Modes:
+#   hold  (default) the key goes down when the controller button is pressed and
+#         up when it is released.
+#   tap   a full press+release is sent when the button is pressed; the release
+#         is ignored. Use this for apps that toggle on key-down only.
+#
+# Chords: "key" or "modifier+modifier+key" (case-insensitive, spaces allowed).
+# Exactly one non-modifier key is required.
+#   Modifiers: ctrl, shift, alt (alias: option), meta (aliases: cmd, win, super)
+#   Keys:
+#     a..z, digit_0..digit_9 (or 0..9), f1..f12,
+#     up, down, left, right, page_up, page_down, home, end, insert, delete,
+#     backspace, space, enter, escape, tab, minus, equal, left_bracket,
+#     right_bracket, semicolon, apostrophe, comma, period, slash, backslash,
+#     grave, kp_0..kp_9, kp_plus, kp_minus, kp_multiply, kp_divide, kp_enter,
+#     kp_decimal
+#
+# Valid action names (uncomment and fill in):
+#   # shift_up = ""
+#   # shift_down = ""
+#   # navigate_up = ""
+#   # navigate_down = ""
+#   # navigate_left = ""
+#   # navigate_right = ""
+#   # select = ""
+#   # back = ""
+#   # menu = ""
+#   # push_to_talk = ""
+#   # increase_resistance = ""
+#   # decrease_resistance = ""
+#   # skip_interval = ""
+#   # pause = ""
+#   # resume = ""
+#   # lap = ""
+#   # previous_interval = ""
+#   # u_turn = ""
+#   # change_mode = ""
+#   # take_a_break = ""
+#   # join_rider = ""
+#   # change_route = ""
+#   # brake = ""
+#   # camera_view = ""
+#   # camera_view_behind = ""
+#   # camera_view_first_person = ""
+#   # camera_view_from_front = ""
+#   # hud_toggle = ""
+#   # map_toggle = ""
+#   # home = ""
+#   # screenshot = ""
+#   # cruise_control = ""
+#   # camera_view_helicopter = ""
+#   # camera_view_birdseye = ""
+#   # focus_group_ahead = ""
+#   # focus_group_behind = ""
+#   # steer_left = ""
+#   # steer_right = ""
+app = "Rouvy"
+
+[bindings]
+shift_up      = "period"
+shift_down    = "comma"
+steer_left    = "left"
+steer_right   = "right"
+hud_toggle    = "h" 
+skip_interval = "w"
+pause = "space"
+camera_view   = "tab"
+push_to_talk = "t"
+screenshot    = { key = "s", mode = "tap" }
+#   # navigate_up = ""
+#   # navigate_down = ""
+#   # navigate_left = ""
+#   # navigate_right = ""
+#   # select = ""
+#   # back = ""
+#   # menu = ""
+#   # push_to_talk = ""
+#   # increase_resistance = ""
+#   # decrease_resistance = ""
+#   # pause = ""
+#   # resume = ""
+#   # lap = ""
+#   # previous_interval = ""
+#   # u_turn = ""
+#   # change_mode = ""
+#   # take_a_break = ""
+#   # join_rider = ""
+#   # change_route = ""
+#   # brake = ""
+#   # camera_view = ""
+#   # camera_view_behind = ""
+#   # camera_view_first_person = ""
+#   # camera_view_from_front = ""
+#   # hud_toggle = ""
+#   # map_toggle = ""
+#   # home = ""
+#   # screenshot = ""
+#   # cruise_control = ""
+#   # camera_view_helicopter = ""
+#   # camera_view_birdseye = ""
+#   # focus_group_ahead = ""
+#   # focus_group_behind = ""
+
