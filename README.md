@@ -96,6 +96,21 @@ bikestick -m race                  # race preset
 
 Exit with Ctrl-C.
 
+## Building a Linux binary for Ubuntu 20.04+
+
+To build a release binary against an Ubuntu 20.04 glibc baseline, use the
+Dockerfile at [ancillary/Dockerfile.ubuntu20](./ancillary/Dockerfile.ubuntu20):
+
+```sh
+docker build -t ubuntu20-rust-builder -f ancillary/Dockerfile.ubuntu20 .
+docker run --rm -v "$PWD":/work \
+    -v ubuntu20-rust-cargo-registry:/root/.cargo/registry \
+    -v ubuntu20-rust-cargo-git:/root/.cargo/git \
+    ubuntu20-rust-builder cargo build --release --locked
+```
+
+The built binary is written to `target-docker/release/`.
+
 ## Configuration
 
 Everything is optional with built-in defaults. Precedence is

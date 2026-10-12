@@ -1,0 +1,8 @@
+{
+  "name": "bikestick",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build:linux:ubuntu20": "sh ancillary/build-ubuntu20.sh"
+  }
+}

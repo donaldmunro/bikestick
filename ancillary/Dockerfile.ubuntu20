@@ -1,0 +1,35 @@
+# Build container for compiling Linux binaries against an Ubuntu 20.04
+# glibc baseline (glibc 2.31) so the resulting binary remains compatible
+# with Ubuntu 20.04 and newer Linux distributions with the same or newer
+# glibc. To check glibc on a target system, run:
+#   ldd --version
+#   getconf GNU_LIBC_VERSION
+#
+# Usage (from the repo root):
+#   docker build -t ubuntu20-rust-builder -f ancillary/Dockerfile.ubuntu20 .
+#   docker run --rm -v "$PWD":/work \
+#       -v ubuntu20-rust-cargo-registry:/root/.cargo/registry \
+#       -v ubuntu20-rust-cargo-git:/root/.cargo/git \
+#       ubuntu20-rust-builder cargo build --release --locked
+#
+# Binaries are output in the local target-docker/release/ directory on the
+# host. Because the container runs as root, a chown may be necessary.
+
+FROM ubuntu:20.04
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    ca-certificates \
+    curl \
+    libdbus-1-dev \
+    libudev-dev \
+    pkg-config \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | \
+    sh -s -- -y --default-toolchain stable --profile minimal
+
+ENV PATH=/root/.cargo/bin:$PATH
+ENV CARGO_TARGET_DIR=/work/target-docker
+
+WORKDIR /work
