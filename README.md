@@ -90,8 +90,9 @@ On Linux and macOS, `--write-config`, `-K` and `-M` open the written file in
 bikestick --help                  # Print help
 bikestick --doctor                 # check Bluetooth, keyboard injection, gamepads, config path
 bikestick                          # run with defaults (auto output, "ride" mapping, TPV keys)
-bikestick -c keyboard -k mywhoosh  # keyboard only, MyWhoosh shortcuts
 bikestick -m race                  # race preset
+bikestick -k mywhoosh  # MyWhoosh shortcuts
+bikestick -c keyboard -m race -k biketerra # keyboard only, race mode, BikeTerra shortcuts
 ```
 
 Exit with Ctrl-C.
